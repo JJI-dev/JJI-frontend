@@ -53,6 +53,9 @@ logs/
 # shell scripts
 *.sh
 
+# PM2 ecosystem config (use root ecosystem.config.js instead)
+ecosystem.config.js
+
 # vercel
 .vercel
 
