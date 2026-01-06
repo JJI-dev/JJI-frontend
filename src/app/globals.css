@@ -1,26 +1,31 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  /* ... (생략된 코드 동일) ... */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* 메인 스크롤 컨테이너 */
+  main {
+    height: 100vh;
+    overflow-y: auto; 
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth; /* 2. 부드러운 스크롤 애니메이션 효과를 위해 다시 활성화 */
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* 각 풀스크린 섹션 */
+  .snap-section {
+    height: 100vh; 
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    
+    /* 1. 이 속성은 framer-motion transition으로 대체되었으므로 삭제 */
+    /* transition: scroll-position 0.5s cubic-bezier(0.4, 0.0, 0.2, 1); */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-pretendard {
+    font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
+  }
 }

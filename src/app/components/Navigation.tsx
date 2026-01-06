@@ -47,14 +47,14 @@ export default function HomePage() {
     },
   ]
 
+  // 2. 호버 애니메이션 개선: duration을 더 늘리고 ease를 미세 조정
   const transition: Transition = {
-    duration: 1.0, 
-    ease: [0.25, 1, 0.5, 1], 
+    duration: 1.2, // 지속 시간 증가
+    ease: [0.1, 1, 0.4, 1], // 더욱 부드럽고 느린 가속/감속 효과
   }
 
   return (
     <>
-      {/* 2. 섹션 마진 40px 삭제: snap-section에서 px-[40px] 제거 */}
       <section className="snap-section flex box-border">
         <div className="w-full h-full flex"> 
           {sections.map((section, index) => {
@@ -66,7 +66,8 @@ export default function HomePage() {
             }
 
             // 각 섹션의 좌우 40px 패딩은 유지 (p-10)
-            const paddingClass = 'pt-0 pb-10 px-10' 
+            // 상단 패딩은 0, 하단 패딩은 아이콘 위치 조정을 위해 0으로 변경
+            const paddingClass = 'pt-0 pb-0 px-10' 
 
             const borderClass = index < sections.length - 1 ? (
                 index === 1 ? 'border-r-2 border-black' : 'border-r border-gray-300'
@@ -86,8 +87,8 @@ export default function HomePage() {
                 onMouseLeave={() => setHoveredSection(null)}
                 transition={transition} 
               >
-                {/* 상단 텍스트 영역 (헤더에 가려지는 부분을 위해 mt-[60px] 유지) */}
-                <div className="mt-[60px]"> 
+                {/* 3. 상단 텍스트 영역: mt-[60px] -> mt-[80px]로 늘려 헤더와의 간격 확보 */}
+                <div className="mt-[80px]"> 
                   <motion.h2 
                     className="text-[80px] md:text-[96px] font-medium leading-[1.1] mb-8"
                     animate={{ x: hoveredSection === section.id ? 10 : 0 }}
@@ -105,8 +106,8 @@ export default function HomePage() {
                   )}
                 </div>
 
-                {/* 4. 하단 아이콘/텍스트 영역: justify-end와 pb-10 유지하여 NE, MO와 동일하게 우측 하단 정렬 */}
-                <div className={`flex items-end justify-end pb-10`}> 
+                {/* 1. 하단 아이콘/텍스트 영역: 아이콘을 하단에 정렬시키고 40px 여백을 부여하여 사진과 동일한 위치로 조정 */}
+                <div className={`flex items-end justify-end pb-[40px]`}> 
                     
                     {/* 아이콘에만 링크 적용 */}
                     <Link 
@@ -128,7 +129,8 @@ export default function HomePage() {
                                 alt={section.iconText || 'Icon'} 
                                 width={section.iconWidth} 
                                 height={section.iconHeight}
-                                className='object-contain transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1'
+                                // object-bottom을 추가하여 아이콘이 컨테이너 하단에 붙도록 합니다.
+                                className='object-contain object-bottom transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1'
                             />
                         </motion.div>
                         
@@ -144,14 +146,12 @@ export default function HomePage() {
       </section>
 
       {/* Section 2: Whitespace & Footer */}
-      {/* 1. 푸터 아래 흰 공간 삭제: pb-[40px] 삭제. 푸터 내용이 화면 끝에 붙도록 수정 */}
       <section className="snap-section flex flex-col justify-between bg-white w-full"> 
          {/* 상단 공백 영역 */}
          <div className="flex-1"></div>
 
          {/* 푸터 영역 */}
          <div className="w-full pt-4"> 
-            {/* 2. 푸터 로고: px-[40px] 제거 */}
             <div className="relative w-full h-[200px]"> 
                 <Image 
                   src="/footer-text.svg" 
