@@ -1,168 +1,109 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { motion, Transition } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HamburgerMenu from './components/HamburgerMenu';
 
-export default function HomePage() {
-  const [hoveredSection, setHoveredSection] = useState<string | null>(null)
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const sections = [
-    {
-      id: 'creative-visuals',
-      title: 'Creative Visuals',
-      subtitle: ['3D', 'Illustration', 'Graphics', 'Video', 'design'],
-      iconSrc: '/ne-icon.svg', 
-      iconText: 'NE',
-      bgColor: 'bg-white',
-      textColor: 'text-black',
-      link: 'https://ne.jji.kr',
-      isExternal: true,
-      iconWidth: 193, iconHeight: 131,
-    },
-    {
-      id: 'case-studies',
-      title: 'Case Studies',
-      subtitle: ['Web', 'Mobile', 'Admin'],
-      iconSrc: '/mo-icon.svg', 
-      iconText: 'MO',
-      bgColor: 'bg-white',
-      textColor: 'text-black',
-      link: 'https://mo.jji.kr',
-      isExternal: true,
-      iconWidth: 206, iconHeight: 125,
-    },
-    {
-      id: 'project-request',
-      title: 'Project Request',
-      subtitle: [],
-      iconSrc: '/arrow-right.svg', 
-      iconText: '',
-      bgColor: 'bg-black',
-      textColor: 'text-white',
-      link: '/project-request',
-      isExternal: false,
-      iconWidth: 43, iconHeight: 38,
-    },
-  ]
-
-  const transition: Transition = {
-    duration: 1.0, 
-    ease: [0.25, 1, 0.5, 1], 
-  }
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
-    <>
-      {/* 2. 섹션 마진 40px 삭제: snap-section에서 px-[40px] 제거 */}
-      <section className="snap-section flex box-border">
-        <div className="w-full h-full flex"> 
-          {sections.map((section, index) => {
-            
-            let flexClass = 'flex-1'
-            if (hoveredSection) {
-               if (hoveredSection === section.id) flexClass = 'flex-[2]'
-               else flexClass = 'flex-[0.5]' 
-            }
+    <div className="min-h-screen bg-white relative overflow-x-hidden">
+      <Header onMenuToggle={toggleMenu} isMenuOpen={menuOpen} />
 
-            // 각 섹션의 좌우 40px 패딩은 유지 (p-10)
-            const paddingClass = 'pt-0 pb-10 px-10' 
-
-            const borderClass = index < sections.length - 1 ? (
-                index === 1 ? 'border-r-2 border-black' : 'border-r border-gray-300'
-            ) : '';
-
-            return (
-              <motion.div
-                key={section.id}
-                className={`
-                  relative h-full flex flex-col justify-between 
-                  ${paddingClass} 
-                  ${borderClass} 
-                  ${section.bgColor} ${section.textColor}
-                  ${flexClass}
-                `}
-                onMouseEnter={() => setHoveredSection(section.id)}
-                onMouseLeave={() => setHoveredSection(null)}
-                transition={transition} 
-              >
-                {/* 상단 텍스트 영역 (헤더에 가려지는 부분을 위해 mt-[60px] 유지) */}
-                <div className="mt-[60px]"> 
-                  <motion.h2 
-                    className="text-[80px] md:text-[96px] font-medium leading-[1.1] mb-8"
-                    animate={{ x: hoveredSection === section.id ? 10 : 0 }}
-                    transition={transition}
-                  >
-                    {section.title.split(' ').map((word, i) => (
-                      <span key={i} className="block">{word}</span>
-                    ))}
-                  </motion.h2>
-                  
-                  {section.subtitle.length > 0 && (
-                     <div className="flex flex-col gap-1 text-[20px] font-normal text-gray-400">
-                        {section.subtitle.map((s, i) => <span key={i} className='font-normal'>{s}</span>)}
-                     </div>
-                  )}
-                </div>
-
-                {/* 4. 하단 아이콘/텍스트 영역: justify-end와 pb-10 유지하여 NE, MO와 동일하게 우측 하단 정렬 */}
-                <div className={`flex items-end justify-end pb-10`}> 
-                    
-                    {/* 아이콘에만 링크 적용 */}
-                    <Link 
-                        href={section.link}
-                        target={section.isExternal ? '_blank' : '_self'}
-                        rel={section.isExternal ? 'noopener noreferrer' : undefined}
-                        className="text-center group" 
-                    >
-                        <motion.div
-                            animate={{
-                                scale: hoveredSection === section.id ? 1.1 : 1,
-                                y: hoveredSection === section.id ? -10 : 0,
-                            }}
-                            transition={transition}
-                            className='w-fit mx-auto' 
-                        >
-                            <Image 
-                                src={section.iconSrc} 
-                                alt={section.iconText || 'Icon'} 
-                                width={section.iconWidth} 
-                                height={section.iconHeight}
-                                className='object-contain transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1'
-                            />
-                        </motion.div>
-                        
-                        {section.iconText && (
-                            <div className="text-[32px] font-medium mt-4">{section.iconText}</div>
-                        )}
-                    </Link>
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-      </section>
-
-      {/* Section 2: Whitespace & Footer */}
-      {/* 1. 푸터 아래 흰 공간 삭제: pb-[40px] 삭제. 푸터 내용이 화면 끝에 붙도록 수정 */}
-      <section className="snap-section flex flex-col justify-between bg-white w-full"> 
-         {/* 상단 공백 영역 */}
-         <div className="flex-1"></div>
-
-         {/* 푸터 영역 */}
-         <div className="w-full pt-4"> 
-            {/* 2. 푸터 로고: px-[40px] 제거 */}
-            <div className="relative w-full h-[200px]"> 
-                <Image 
-                  src="/footer-text.svg" 
-                  alt="JJINEMO" 
-                  fill 
-                  className="object-contain object-left-bottom" 
-                  priority
-                />
+      <main className="pt-12 md:pt-16 px-4 md:px-12 max-w-[1920px] mx-auto">
+        {/* Navigation Section - 4 Columns */}
+        <div className="min-h-[calc(100vh-24rem)] flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 w-full">
+            {/* Column 1: ABOUT / PORTFOLIO */}
+            <div className="flex flex-col">
+              <Link href="/about" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight">
+                ABOUT
+              </Link>
+              <Link href="/portfolio" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight">
+                PROTFOLIO
+              </Link>
             </div>
-         </div>
-      </section>
-    </>
-  )
+
+            {/* Column 2: MO + Services */}
+            <div className="space-y-4">
+              <a 
+                href="https://mo.jji.kr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+              >
+                MO
+              </a>
+              <ul className="space-y-1 text-lg md:text-xl lg:text-2xl text-gray-400">
+                <li>Web</li>
+                <li>Mobile</li>
+                <li>Admin</li>
+              </ul>
+            </div>
+
+            {/* Column 3: NE + Services */}
+            <div className="space-y-4">
+              <a 
+                href="https://ne.jji.kr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+              >
+                NE
+              </a>
+              <ul className="space-y-1 text-lg md:text-xl lg:text-2xl text-gray-400">
+                <li>3D</li>
+                <li>Illustration</li>
+                <li>Graphics</li>
+                <li>Video</li>
+                <li>Design</li>
+              </ul>
+            </div>
+
+            {/* Column 4: PROJECT REQUEST / SPACE */}
+            <div className="flex flex-col gap-6">
+              <a 
+                href="https://request.jji.kr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+              >
+                PROJECT REQUEST
+              </a>
+              <div className="flex gap-24">
+              <a 
+                href="https://space.jji.kr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block text-4xl md:text-5xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+              >
+                SPACE
+              </a>
+              <a 
+                href="https://career.jji.kr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block text-4xl md:text-5xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+              >
+                CAREER
+              </a>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+        <Footer />
+      </main>
+
+      <HamburgerMenu isOpen={menuOpen} onClose={toggleMenu} />
+    </div>
+  );
 }
