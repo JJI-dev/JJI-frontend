@@ -33,14 +33,14 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
       }}
     >
       <div className="h-full flex flex-col">
-        {/* Close Button */}
-        <div className="flex justify-end p-6 md:p-8">
+        {/* Close Button — 헤더와 동일한 padding으로 위치 맞춤 */}
+        <div className="flex justify-end px-4 md:px-12 py-6 md:py-8">
           <button 
             onClick={onClose}
-            className="w-15 h-15 md:w-15 md:h-15 rounded-full border-1 border-black bg-white flex items-center justify-center hover:bg-gray-50 transition-all duration-300"
+            className="w-15 h-15 rounded-full border border-black bg-white flex items-center justify-center hover:bg-gray-50 transition-all duration-300 cursor-pointer"
             aria-label="Close menu"
           >
-             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="30" cy="30" r="29.5" fill="white" stroke="black" strokeWidth="1"/>
               <rect x="23.7773" y="22.362" width="20" height="2" transform="rotate(45 23.7773 22.362)" fill="black"/>
               <rect x="22.3633" y="36.5042" width="20" height="2" transform="rotate(-45 22.3633 36.5042)" fill="black"/>
@@ -57,7 +57,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                   href={item.href}
                   target={item.href.startsWith('http') ? "_blank" : undefined}
                   rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                  className={`block text-right text-4xl md:text-5xl lg:text-6xl font-normal py-4 hover:opacity-60 transition-all duration-300 ${
+                  className={`block text-right text-4xl md:text-5xl lg:text-6xl font-normal py-4 hover:opacity-60 transition-all duration-300 cursor-pointer ${
                     isOpen ? 'animate-slideIn' : ''
                   }`}
                   style={{
@@ -69,7 +69,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className={`block text-right text-4xl md:text-5xl lg:text-6xl font-normal py-4 hover:opacity-60 transition-all duration-300 ${
+                  className={`block text-right text-4xl md:text-5xl lg:text-6xl font-normal py-4 hover:opacity-60 transition-all duration-300 cursor-pointer ${
                     isOpen ? 'animate-slideIn' : ''
                   }`}
                   style={{
@@ -96,7 +96,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#222" strokeWidth="2"/>
                   </svg>
                 </div>
-                <a href={`mailto:${contact.email}`} className="text-2xl md:text-3xl lg:text-4xl font-medium hover:underline">
+                <a href={`mailto:${contact.email}`} className="text-2xl md:text-3xl lg:text-4xl font-medium hover:underline cursor-pointer">
                   {contact.email}
                 </a>
               </div>
@@ -105,7 +105,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
 
           {/* Social Media */}
           <div className="flex justify-center md:justify-end items-center gap-6 mt-12">
-            <a href="#" className="hover:opacity-60 transition-opacity">
+            <a href="#" className="hover:opacity-60 transition-opacity cursor-pointer">
               <svg width="31" height="30" viewBox="0 0 31 30" fill="none">
                 <rect x="3.875" y="3.75" width="22.5" height="22.5" stroke="#222" strokeWidth="2" rx="4"/>
                 <circle cx="23.25" cy="7.5" r="1.5" fill="#222"/>

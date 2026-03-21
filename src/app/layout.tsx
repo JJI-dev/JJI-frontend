@@ -1,6 +1,6 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
+import CursorAnimation from '@/components/CursorAnimation';
 
 export const metadata: Metadata = {
   title: 'JJI WORKS',
@@ -21,6 +21,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
       </head>
       <body className="font-pretendard">
+        <CursorAnimation />
         {children}
       </body>
     </html>

@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HamburgerMenu from './components/HamburgerMenu';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import HamburgerMenu from '@/components/HamburgerMenu';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,10 +23,10 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 w-full">
             {/* Column 1: ABOUT / PORTFOLIO */}
             <div className="flex flex-col">
-              <Link href="/about" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight">
+              <Link href="/about" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer">
                 ABOUT
               </Link>
-              <Link href="/portfolio" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight">
+              <Link href="/portfolio" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer">
                 PROTFOLIO
               </Link>
             </div>
@@ -37,7 +37,7 @@ export default function Home() {
                 href="https://mo.jji.kr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer"
               >
                 MO
               </a>
@@ -54,7 +54,7 @@ export default function Home() {
                 href="https://ne.jji.kr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer"
               >
                 NE
               </a>
@@ -67,35 +67,35 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Column 4: PROJECT REQUEST / SPACE */}
+            {/* Column 4: PROJECT REQUEST / SPACE / CAREER */}
             <div className="flex flex-col gap-6">
               <a 
                 href="https://request.jji.kr" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
+                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer"
               >
                 PROJECT REQUEST
               </a>
-              <div className="flex gap-24">
-              <a 
-                href="https://space.jji.kr" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block text-4xl md:text-5xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
-              >
-                SPACE
-              </a>
-              <a 
-                href="https://career.jji.kr" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block text-4xl md:text-5xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight"
-              >
-                CAREER
-              </a>
+              {/* 모바일에서 Footer 구분선과 여백 확보 */}
+              <div className="flex gap-24 pb-4 lg:pb-0">
+                <a 
+                  href="https://space.jji.kr" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block text-4xl md:text-5xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer"
+                >
+                  SPACE
+                </a>
+                <a 
+                  href="https://career.jji.kr" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block text-4xl md:text-5xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity tracking-tight leading-tight cursor-pointer"
+                >
+                  CAREER
+                </a>
               </div>
-            
             </div>
           </div>
         </div>

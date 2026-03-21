@@ -28,8 +28,10 @@ const KoreanTime = () => {
 
 const BottomLogo = () => {
   return (
-    <div className="relative -mx-4 md:-mx-12 overflow-hidden">
-      <div className="w-full" style={{ transform: 'translateY(50px)' }}>
+    // overflow-hidden 제거 → 글자가 잘리지 않게
+    // translateY를 줄여서 더 많이 보이도록 조정
+    <div className="relative -mx-4 md:-mx-12">
+      <div className="w-full" style={{ transform: 'translateY(20px)' }}>
         <svg viewBox="0 0 1920 173" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
           <g clipPath="url(#clip0_143_25)">
             <path d="M1894.75 248.5C1757.9 248.5 1698.75 209.65 1698.75 124.25C1698.75 38.85 1757.9 0 1894.75 0C2031.6 0 2090.75 38.85 2090.75 124.25C2090.75 209.65 2031.6 248.5 1894.75 248.5ZM1894.75 187.6C1990.3 187.6 2018.3 170.45 2018.3 124.25C2018.3 78.05 1990.3 60.9 1894.75 60.9C1798.85 60.9 1769.8 78.05 1769.8 124.25C1769.8 170.45 1798.85 187.6 1894.75 187.6Z" fill="black"/>
@@ -69,7 +71,7 @@ export default function Footer() {
         {/* Column 1: Contact */}
         <div>
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 tracking-tight">want to see our work?</h4>
-          <a href="mailto:contact@jji.kr" className="text-lg md:text-xl lg:text-2xl font-light hover:underline tracking-tight">
+          <a href="mailto:contact@jji.kr" className="text-lg md:text-xl lg:text-2xl font-light hover:underline tracking-tight cursor-pointer">
             contact@jji.kr
           </a>
         </div>
@@ -91,7 +93,7 @@ export default function Footer() {
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 tracking-tight">LINK</h4>
           <div className="text-lg md:text-xl lg:text-2xl font-light space-y-1">
             {socialLinks.map((link) => (
-              <a key={link.name} href={link.href} className="block hover:underline tracking-tight">
+              <a key={link.name} href={link.href} className="block hover:underline tracking-tight cursor-pointer">
                 {link.name}
               </a>
             ))}

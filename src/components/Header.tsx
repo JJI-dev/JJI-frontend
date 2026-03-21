@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const Logo = () => {
   return (
-    <Link href="/" className="w-16 md:w-20 block">
+    <Link href="/" className="w-16 md:w-20 block cursor-pointer">
       <svg viewBox="0 0 92 52" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M23.7685 35.7124C23.1586 35.996 22.1689 35.9965 18.3742 35.1527C16.1426 34.6565 12.3126 33.9129 9.98881 33.3652C5.90412 32.4023 5.08624 31.4072 4.205 30.4405C3.44616 29.6081 2.75612 27.0081 2.20471 24.761C1.85551 23.3379 2.00253 21.9668 2.27727 20.2629C2.48236 18.991 3.026 16.9296 3.45776 15.4383C4.14455 13.066 4.82668 11.8565 5.32482 11.053C5.91886 10.0947 7.17062 8.72859 9.32075 6.86747C10.548 5.80515 12.3038 4.81426 13.62 4.08911C15.7681 2.90568 17.2599 2.52238 18.6953 2.27205C20.8804 1.89098 22.9009 1.98025 24.2438 2.12004C25.6023 2.26145 27.0771 2.83511 28.6607 3.38751C31.6306 4.42349 33.4866 5.55041 34.4336 6.29946C35.6237 7.24083 36.6808 10.0277 37.573 12.4441C37.98 13.5464 37.9892 14.6558 37.9986 16.4712C38.0169 20.0422 37.874 22.5925 37.8071 23.1216C37.7592 23.6507 37.6829 24.1651 37.5684 24.6095C37.5108 24.8101 37.454 24.9602 36.9938 25.284" stroke="black" strokeWidth="4" strokeLinecap="round"/>
         <path d="M37.2939 24.9613C37.5524 24.7861 38.4186 24.2357 39.8164 23.9298C40.667 23.7437 41.8552 24.11 43.1786 24.8394C43.6824 25.1219 44.0847 25.3757 44.4141 25.6088C44.5715 25.7071 44.709 25.7649 45.0587 25.9995" stroke="black" strokeWidth="4" strokeLinecap="round"/>
@@ -27,7 +27,7 @@ const MenuButton = ({ onClick, isOpen }: { onClick: () => void; isOpen: boolean 
   return (
     <button 
       onClick={onClick}
-      className="w-15 h-15 rounded-full border border-black bg-white flex items-center justify-center hover:bg-gray-50 transition-all duration-300 relative z-50"
+      className="w-15 h-15 rounded-full border border-black bg-white flex items-center justify-center hover:bg-gray-50 transition-all duration-300 relative z-50 cursor-pointer"
       aria-label="Toggle menu"
     >
       {!isOpen ? (
