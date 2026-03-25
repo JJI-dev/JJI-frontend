@@ -1,22 +1,66 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+
+:root {
+  --px: clamp(24px, 4vw, 48px);
+  --logo-h: 20px;
+  --ham-h: 20px;
+  --footer-clip-h: clamp(80px, 7vw, 130px);
+  --footer-clip-ty: -10%;
 }
+
+html, body { scroll-behavior: smooth; overflow-x: hidden; scrollbar-width: none; }
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.4); }
+::-webkit-scrollbar-corner { background: transparent; }
+* { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.15) transparent; }
+
+/* ── Nav logo circle (MO 구조 통일) ── */
+.nav-logo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+.nav-logo-inner:hover { background: rgba(0, 0, 0, 0.06); }
 
 body {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: none;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 480px) {
+  :root { --px: 20px; }
+}
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
 }
 
 .font-panchang {
   font-family: 'Panchang', sans-serif;
+  letter-spacing: -0.04em;
 }
 
 .font-pretendard {
   font-family: 'Pretendard', sans-serif;
+  letter-spacing: -0.04em;
 }
 
 /* ── Custom Cursor ─────────────────────────────── */

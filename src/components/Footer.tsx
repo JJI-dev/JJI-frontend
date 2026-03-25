@@ -23,16 +23,19 @@ const KoreanTime = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <p className="text-lg md:text-xl lg:text-2xl font-light tracking-tight">{currentTime}</p>;
+  return <p className="text-lg md:text-xl lg:text-2xl font-light ">{currentTime}</p>;
 };
 
 const BottomLogo = () => {
   return (
-    // overflow-hidden 제거 → 글자가 잘리지 않게
-    // translateY를 줄여서 더 많이 보이도록 조정
-    <div className="relative -mx-4 md:-mx-12">
-      <div className="w-full" style={{ transform: 'translateY(20px)' }}>
-        <svg viewBox="0 0 1920 173" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+    <div style={{
+      overflow: 'hidden',
+      // height: 'var(--footer-clip-h, clamp(80px, 7vw, 130px))', 
+      marginLeft: 'calc(-1 * var(--px))',
+      marginRight: 'calc(-1 * var(--px))',
+    }}>
+      <div style={{  }}>
+        <svg viewBox="0 0 1920 173" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block' }}>
           <g clipPath="url(#clip0_143_25)">
             <path d="M1894.75 248.5C1757.9 248.5 1698.75 209.65 1698.75 124.25C1698.75 38.85 1757.9 0 1894.75 0C2031.6 0 2090.75 38.85 2090.75 124.25C2090.75 209.65 2031.6 248.5 1894.75 248.5ZM1894.75 187.6C1990.3 187.6 2018.3 170.45 2018.3 124.25C2018.3 78.05 1990.3 60.9 1894.75 60.9C1798.85 60.9 1769.8 78.05 1769.8 124.25C1769.8 170.45 1798.85 187.6 1894.75 187.6Z" fill="black"/>
             <path d="M1282.22 243.6H1211.17V4.90015H1297.62L1440.42 185.15L1582.87 4.90015H1667.92V243.6H1596.87V89.2502L1475.42 243.6H1403.67L1282.22 89.2502V243.6Z" fill="black"/>
@@ -70,30 +73,30 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
         {/* Column 1: Contact */}
         <div>
-          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 tracking-tight">want to see our work?</h4>
-          <a href="mailto:contact@jji.kr" className="text-lg md:text-xl lg:text-2xl font-light hover:underline tracking-tight cursor-pointer">
+          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">want to see our work?</h4>
+          <a href="mailto:contact@jji.kr" className="text-lg md:text-xl lg:text-2xl font-light hover:underline  cursor-pointer">
             contact@jji.kr
           </a>
         </div>
 
         {/* Column 2: Korea Time */}
         <div>
-          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 tracking-tight">KOREA</h4>
+          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">KOREA</h4>
           <KoreanTime />
         </div>
 
         {/* Column 3: Creator */}
         <div>
-          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 tracking-tight">Creator</h4>
-          <p className="text-lg md:text-xl lg:text-2xl font-light tracking-tight">JO YEJIN</p>
+          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">Creator</h4>
+          <p className="text-lg md:text-xl lg:text-2xl font-light ">JO YEJIN</p>
         </div>
 
         {/* Column 4: Links */}
         <div>
-          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 tracking-tight">LINK</h4>
+          <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">LINK</h4>
           <div className="text-lg md:text-xl lg:text-2xl font-light space-y-1">
             {socialLinks.map((link) => (
-              <a key={link.name} href={link.href} className="block hover:underline tracking-tight cursor-pointer">
+              <a key={link.name} href={link.href} className="block hover:underline  cursor-pointer">
                 {link.name}
               </a>
             ))}
@@ -102,7 +105,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="text-lg md:text-xl lg:text-2xl font-medium mb-8 tracking-tight">
+      <div className="text-lg md:text-xl lg:text-2xl font-medium mb-8 ">
         © COPYRIGHT 2026 JJI WORKS<br />ALL RIGHT RESERVED
       </div>
 

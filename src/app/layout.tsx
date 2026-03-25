@@ -20,7 +20,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Panchang:wght@700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
       </head>
-      <body className="font-pretendard">
+      <body style={{ letterSpacing: '-0.04em', overflowX: 'hidden' }}>
         <CursorAnimation />
         {children}
       </body>

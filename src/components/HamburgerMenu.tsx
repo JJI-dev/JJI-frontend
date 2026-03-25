@@ -13,10 +13,10 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
     { label: 'HOME', href: '/' },
     { label: 'ABOUT', href: '/about' },
     { label: 'PORTFOLIO', href: '/portfolio' },
-    { label: 'PROJECT RQUEST', href: 'https://request.jji.kr' },
+    { label: 'PROJECT REQUEST', href: 'https://request.jji.kr' },
     { label: 'CONTACT', href: 'mailto:contact@jji.kr' }
   ];
-  
+
   const contactInfo = [
     { label: 'Art', email: 'ne@jji.kr' },
     { label: 'Product', email: 'mo@jji.kr' },
@@ -24,115 +24,99 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
   ];
 
   return (
-    <div 
+    <div
       className={`fixed inset-0 bg-white z-50 transition-all duration-700 ease-in-out ${
         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}
-      style={{
-        transform: isOpen ? 'translateX(0)' : 'translateX(100%)'
-      }}
+      style={{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)' }}
     >
-      <div className="h-full flex flex-col">
-        {/* Close Button — 헤더와 동일한 padding으로 위치 맞춤 */}
-        <div className="flex justify-end px-4 md:px-12 py-6 md:py-8">
-          <button 
+      {/* 전체를 스크롤 가능한 컨테이너로 — 모바일에서 내용 잘림 방지 */}
+      <div
+        className="hide-scrollbar" 
+        style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden', display: 'flex', flexDirection: 'column' }}
+      >
+
+        {/* 닫기 버튼 */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '20px var(--px)', flexShrink: 0 }}>
+          <button
             onClick={onClose}
-            className="w-15 h-15 rounded-full border border-black bg-white flex items-center justify-center hover:bg-gray-50 transition-all duration-300 cursor-pointer"
+            style={{ width: 40, height: 40, borderRadius: '50%', border: '1px solid black', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
             aria-label="Close menu"
           >
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="30" cy="30" r="29.5" fill="white" stroke="black" strokeWidth="1"/>
-              <rect x="23.7773" y="22.362" width="20" height="2" transform="rotate(45 23.7773 22.362)" fill="black"/>
-              <rect x="22.3633" y="36.5042" width="20" height="2" transform="rotate(-45 22.3633 36.5042)" fill="black"/>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <line x1="1" y1="1" x2="13" y2="13" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="13" y1="1" x2="1" y2="13" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
             </svg>
           </button>
         </div>
 
-        {/* Menu Items */}
-        <nav className="flex-1 flex flex-col justify-center px-6 md:px-20">
+        {/* 메뉴 아이템 */}
+        <nav style={{ padding: '40px var(--px)', flexShrink: 0 }}>
           {menuItems.map((item, index) => (
-            <div key={item.href} className="my-2 md:my-1">
+            <div key={item.href}>
               {item.href.startsWith('http') || item.href.startsWith('mailto:') ? (
                 <a
                   href={item.href}
-                  target={item.href.startsWith('http') ? "_blank" : undefined}
-                  rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                  className={`block text-right text-4xl md:text-5xl lg:text-6xl font-normal py-4 hover:opacity-60 transition-all duration-300 cursor-pointer ${
-                    isOpen ? 'animate-slideIn' : ''
-                  }`}
-                  style={{
-                    animationDelay: `${index * 0.1}s`
-                  }}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  style={{ display: 'block', textAlign: 'right', fontSize: 'clamp(2rem,8vw,4rem)', fontWeight: 400, padding: '12px 0', transition: 'opacity 0.2s' }}
+                  className="hover:opacity-60"
                 >
                   {item.label}
                 </a>
               ) : (
                 <Link
                   href={item.href}
-                  className={`block text-right text-4xl md:text-5xl lg:text-6xl font-normal py-4 hover:opacity-60 transition-all duration-300 cursor-pointer ${
-                    isOpen ? 'animate-slideIn' : ''
-                  }`}
-                  style={{
-                    animationDelay: `${index * 0.1}s`
-                  }}
                   onClick={onClose}
+                  style={{ display: 'block', textAlign: 'right', fontSize: 'clamp(2rem,8vw,4rem)', fontWeight: 400, padding: '12px 0', transition: 'opacity 0.2s' }}
+                  className="hover:opacity-60"
                 >
                   {item.label}
                 </Link>
               )}
-              {index < menuItems.length - 1 && <div className="border-t border-black mt-4"></div>}
+              {index < menuItems.length - 1 && <div style={{ borderTop: '1px solid black' }} />}
             </div>
           ))}
         </nav>
 
-        {/* Contact Info */}
-        <div className="px-6 md:px-20 py-12 md:py-16 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 md:gap-12">
+        {/* 이메일 영역 — flex-shrink:0으로 잘림 방지, 모바일 세로 스택 */}
+        <div style={{ padding: '32px var(--px) 48px', flexShrink: 0, marginTop: 'auto' }}>
+            <div 
+              className="flex flex-row sm:flex-row justify-between" 
+              style={{ gap: '24px' }}
+            >
             {contactInfo.map((contact) => (
-              <div key={contact.email} className="text-right w-full md:w-auto">
-                <div className="flex items-center justify-end gap-2 text-lg md:text-xl text-gray-400 mb-2">
+              <div key={contact.email} style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '14px', color: '#aaa', marginBottom: '4px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
                   <span>{contact.label}</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" opacity="0.4">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" opacity="0.4">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#222" strokeWidth="2"/>
                   </svg>
                 </div>
-                <a href={`mailto:${contact.email}`} className="text-2xl md:text-3xl lg:text-4xl font-medium hover:underline cursor-pointer">
+                <a
+                  href={`mailto:${contact.email}`}
+                  style={{ fontSize: 'clamp(1rem,4vw,1.75rem)', fontWeight: 500 }}
+                  className="hover:underline"
+                >
                   {contact.email}
                 </a>
               </div>
             ))}
           </div>
-
-          {/* Social Media */}
-          <div className="flex justify-center md:justify-end items-center gap-6 mt-12">
-            <a href="#" className="hover:opacity-60 transition-opacity cursor-pointer">
-              <svg width="31" height="30" viewBox="0 0 31 30" fill="none">
-                <rect x="3.875" y="3.75" width="22.5" height="22.5" stroke="#222" strokeWidth="2" rx="4"/>
-                <circle cx="23.25" cy="7.5" r="1.5" fill="#222"/>
-                <circle cx="15.5" cy="15" r="5" stroke="#222" strokeWidth="2"/>
-              </svg>
-            </a>
-            <span className="text-2xl md:text-3xl">B</span>
-            <span className="text-2xl md:text-3xl">B</span>
-          </div>
         </div>
+
       </div>
 
+      {/* 스크롤바 숨김 CSS 추가됨 */}
       <style jsx>{`
-        @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateX(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
+        a:hover { opacity: 0.6; }
         
-        .animate-slideIn {
-          animation: slideIn 0.6s ease-out forwards;
-          opacity: 0;
+        .hide-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Opera */
         }
       `}</style>
     </div>
