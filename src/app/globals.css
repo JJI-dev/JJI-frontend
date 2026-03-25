@@ -45,6 +45,9 @@ body {
   letter-spacing: -0.04em;
 }
 
+a, li { letter-spacing: -.05em}
+
+
 @media (max-width: 480px) {
   :root { --px: 20px; }
 }
