@@ -3,7 +3,7 @@ import './globals.css';
 import CursorAnimation from '@/components/CursorAnimation';
 
 export const metadata: Metadata = {
-  title: 'JJI WORKS',
+  title: 'JJI: Hub',
   description: 'Creative Studio - Design & Development',
 };
 

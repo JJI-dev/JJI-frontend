@@ -106,7 +106,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="text-lg md:text-xl lg:text-2xl font-medium mb-8 ">
-        © COPYRIGHT 2026 JJI WORKS<br />ALL RIGHT RESERVED
+        © COPYRIGHT 2026 JJI <br />ALL RIGHT RESERVED
       </div>
 
       <BottomLogo />
