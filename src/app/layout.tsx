@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import CursorAnimation from '@/components/CursorAnimation';
+import LoadingScreen from '@/components/LoadingScreen';
 
 export const metadata: Metadata = {
   title: 'JJI: Hub',
@@ -22,6 +23,7 @@ export default function RootLayout({
       </head>
       <body style={{ letterSpacing: '-0.04em', overflowX: 'hidden' }}>
         <CursorAnimation />
+        <LoadingScreen/>
         {children}
       </body>
     </html>
