@@ -30,27 +30,26 @@ const MenuButton = ({ onClick, isOpen }: { onClick: () => void; isOpen: boolean 
   <button
     onClick={onClick}
     className="flex items-center justify-center cursor-pointer"
-    style={{ width: 40, height: 40, flexShrink: 0, background: 'none', border: 'none', padding: 0 }}
+    style={{ width: 44, height: 44, flexShrink: 0, background: 'none', border: 'none', padding: 0 }}
     aria-label="Toggle menu"
   >
-    {!isOpen ? (
-      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="1" y1="2"  x2="21" y2="2"  stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="1" y1="10" x2="21" y2="10" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="1" y1="18" x2="21" y2="18" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
+    <div style={{
+      transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)'
+    }}>
+      <svg width="44" height="44" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="29.25" fill="white" stroke="black" strokeWidth="1.5"/>
+        <rect x="20" y="28.9999" width="20" height="2" fill="black"/>
+        <rect x="29" y="39.9999" width="20" height="2" transform="rotate(-90 29 39.9999)" fill="black"/>
       </svg>
-    ) : (
-      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="2" y1="2"  x2="20" y2="18" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="2" y1="18" x2="20" y2="2"  stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    )}
+    </div>
   </button>
 );
 
 export default function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-white">
+
+    <header className="fixed top-0 left-0 right-0 bg-transparent" style={{ zIndex: 100 }}>
       <div className="max-w-[1920px] mx-auto flex justify-between items-center" style={{ padding: '20px 28px' }}>
         <Logo />
         <MenuButton onClick={onMenuToggle} isOpen={isMenuOpen} />

@@ -25,33 +25,20 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
 
   return (
     <div
-      className={`fixed inset-0 bg-white z-50 transition-all duration-700 ease-in-out ${
+      // z-index를 50으로 설정 (Header는 100이므로 메뉴 위에 헤더가 뜹니다)
+      className={`fixed inset-0 bg-white transition-all duration-700 ease-in-out ${
         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}
-      style={{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)' }}
+      style={{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)', zIndex: 50 }}
     >
-      {/* 전체를 스크롤 가능한 컨테이너로 — 모바일에서 내용 잘림 방지 */}
       <div
         className="hide-scrollbar" 
         style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden', display: 'flex', flexDirection: 'column' }}
       >
+        {/* ★ 메뉴 내부의 자체 닫기 버튼 영역은 삭제했습니다! (헤더 버튼이 그 역할을 대신합니다) */}
 
-        {/* 닫기 버튼 */}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '20px var(--px)', flexShrink: 0 }}>
-          <button
-            onClick={onClose}
-            style={{ width: 40, height: 40, borderRadius: '50%', border: '1px solid black', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
-            aria-label="Close menu"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <line x1="1" y1="1" x2="13" y2="13" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-              <line x1="13" y1="1" x2="1" y2="13" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </button>
-        </div>
-
-        {/* 메뉴 아이템 */}
-        <nav style={{ padding: '40px var(--px)', flexShrink: 0 }}>
+        {/* 메뉴 아이템 - padding-top을 넉넉하게 주어 헤더 영역과 겹치지 않게 합니다 */}
+        <nav style={{ padding: '100px var(--px) 40px', flexShrink: 0 }}>
           {menuItems.map((item, index) => (
             <div key={item.href}>
               {item.href.startsWith('http') || item.href.startsWith('mailto:') ? (
@@ -79,7 +66,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
           ))}
         </nav>
 
-        {/* 이메일 영역 — flex-shrink:0으로 잘림 방지, 모바일 세로 스택 */}
+        {/* 이메일 영역 */}
         <div style={{ padding: '32px var(--px) 48px', flexShrink: 0, marginTop: 'auto' }}>
             <div 
               className="flex flex-row sm:flex-row justify-between" 
@@ -107,7 +94,7 @@ export default function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
 
       </div>
 
-      {/* 스크롤바 숨김 CSS 추가됨 */}
+      {/* 스크롤바 숨김 CSS */}
       <style jsx>{`
         a:hover { opacity: 0.6; }
         

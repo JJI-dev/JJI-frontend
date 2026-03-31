@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
 @import "tailwindcss";
 
 * { box-sizing: border-box; }
@@ -8,6 +9,7 @@
   --ham-h: 20px;
   --footer-clip-h: clamp(80px, 7vw, 130px);
   --footer-clip-ty: -10%;
+  --font: 'Poppins', sans-serif;
 }
 
 html, body { scroll-behavior: smooth; overflow-x: hidden; scrollbar-width: none; }
@@ -38,7 +40,8 @@ html, body { scroll-behavior: smooth; overflow-x: hidden; scrollbar-width: none;
 .nav-logo-inner:hover { background: rgba(0, 0, 0, 0.06); }
 
 body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  /* font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: none;
