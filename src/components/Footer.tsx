@@ -58,11 +58,11 @@ const BottomLogo = () => {
 
 export default function Footer() {
   const socialLinks = [
-    { name: 'LinkedIn', href: '#' },
-    { name: 'X (MO)', href: '#' },
-    { name: 'X (NE)', href: '#' },
-    { name: 'Instagram (MO)', href: '#' },
-    { name: 'Instagram (NE)', href: '#' }
+    { name: 'LinkedIn', href: 'https://linkedin.com/in/예진-조-75bb002b4' },
+    { name: 'X (NE)', href: 'https://x.com/jji__ne' },
+    { name: 'X (MO)', href: 'https://x.com/jji__mo' },
+    { name: 'Instagram (NE)', href: 'https://www.instagram.com/jji_ne_' },
+    { name: 'Instagram (MO)', href: 'https://www.instagram.com/jji_mo_' }
   ];
 
   return (
@@ -96,7 +96,7 @@ export default function Footer() {
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">LINK</h4>
           <div className="text-lg md:text-xl lg:text-2xl font-light space-y-1">
             {socialLinks.map((link) => (
-              <a key={link.name} href={link.href} className="block hover:underline  cursor-pointer">
+              <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" className="block hover:underline  cursor-pointer">
                 {link.name}
               </a>
             ))}

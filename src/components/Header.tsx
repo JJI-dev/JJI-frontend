@@ -48,9 +48,9 @@ const MenuButton = ({ onClick, isOpen }: { onClick: () => void; isOpen: boolean 
 
 export default function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
   return (
-
     <header className="fixed top-0 left-0 right-0 bg-transparent" style={{ zIndex: 100 }}>
-      <div className="max-w-[1920px] mx-auto flex justify-between items-center" style={{ padding: '20px 28px' }}>
+      {/* ★ 변경됨: 위아래 padding을 20px에서 18px로 줄여서 전체 높이 80px을 맞췄습니다 */}
+      <div className="max-w-[1920px] mx-auto flex justify-between items-center" style={{ padding: '18px 28px' }}>
         <Logo />
         <MenuButton onClick={onMenuToggle} isOpen={isMenuOpen} />
       </div>
