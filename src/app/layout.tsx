@@ -4,7 +4,7 @@ import CursorAnimation from '@/components/CursorAnimation';
 import LoadingScreen from '@/components/LoadingScreen';
 
 export const metadata: Metadata = {
-  title: 'JJI: Hub',
+  title: 'Hub | JJI',
   description: 'Creative Studio - Design & Development',
 };
 

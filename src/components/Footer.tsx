@@ -23,7 +23,7 @@ const KoreanTime = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <p className="text-lg md:text-xl lg:text-2xl font-light ">{currentTime}</p>;
+  return <p className="text-lg md:text-xl lg:text-xl font-light ">{currentTime}</p>;
 };
 
 const BottomLogo = () => {
@@ -59,6 +59,7 @@ const BottomLogo = () => {
 export default function Footer() {
   const socialLinks = [
     { name: 'LinkedIn', href: 'https://linkedin.com/in/예진-조-75bb002b4' },
+    { name: 'Brunch', href: 'https://brunch.co.kr/@ebf20674d3f546c' },
     { name: 'X (NE)', href: 'https://x.com/jji__ne' },
     { name: 'X (MO)', href: 'https://x.com/jji__mo' },
     { name: 'Instagram (NE)', href: 'https://www.instagram.com/jji_ne_' },
@@ -74,7 +75,7 @@ export default function Footer() {
         {/* Column 1: Contact */}
         <div>
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">want to see our work?</h4>
-          <a href="mailto:contact@jji.kr" className="text-lg md:text-xl lg:text-2xl font-light hover:underline  cursor-pointer">
+          <a href="mailto:contact@jji.kr" className="text-lg md:text-xl lg:text-xl font-light hover:underline  cursor-pointer">
             contact@jji.kr
           </a>
         </div>
@@ -83,18 +84,18 @@ export default function Footer() {
         <div>
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">KOREA</h4>
           <KoreanTime />
-        </div>
+        </div>  
 
         {/* Column 3: Creator */}
         <div>
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">Creator</h4>
-          <p className="text-lg md:text-xl lg:text-2xl font-light ">JO YEJIN</p>
+          <p className="text-lg md:text-xl lg:text-xl font-light ">JO YEJIN</p>
         </div>
 
         {/* Column 4: Links */}
         <div>
           <h4 className="text-lg md:text-xl lg:text-2xl font-medium mb-2 ">LINK</h4>
-          <div className="text-lg md:text-xl lg:text-2xl font-light space-y-1">
+          <div className="text-lg md:text-xl lg:text-xl font-light space-y-1">
             {socialLinks.map((link) => (
               <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" className="block hover:underline  cursor-pointer">
                 {link.name}

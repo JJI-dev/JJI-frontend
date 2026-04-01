@@ -57,10 +57,10 @@ export default function Home() {
                 transition: 'opacity 0.65s cubic-bezier(0.22,1,0.36,1) 0.05s, transform 0.65s cubic-bezier(0.22,1,0.36,1) 0.05s',
               }}
             >
-              <Link href="/about" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+              <Link href="/about" className="menu text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                 ABOUT
               </Link>
-              <Link href="/portfolio" className="text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+              <Link href="/portfolio" className="menu text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                 PORTFOLIO
               </Link>
             </div>
@@ -75,7 +75,7 @@ export default function Home() {
               }}
             >
               <a href="https://mo.jji.kr" target="_blank" rel="noopener noreferrer"
-                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                className="menu block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                 MO
               </a>
               <ul className="space-y-1 text-base md:text-xl lg:text-xl text-gray-400">
@@ -95,7 +95,7 @@ export default function Home() {
               }}
             >
               <a href="https://ne.jji.kr" target="_blank" rel="noopener noreferrer"
-                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                className="menu block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                 NE
               </a>
               <ul className="space-y-1 text-base md:text-xl lg:text-xl text-gray-400">
@@ -117,22 +117,22 @@ export default function Home() {
               }}
             >
               <a href="https://req.jji.kr" target="_blank" rel="noopener noreferrer"
-                className="block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                className="menu block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                 PROJECT REQUEST
               </a>
               <div className='flex flex-col gap-2 '>
               <div className="flex gap-8 sm:gap-12 lg:gap-32   pb-4 lg:pb-0">
                 <a href="https://career.jji.kr" target="_blank" rel="noopener noreferrer"
-                    className="block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                    className="menu block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                     CAREER
                   </a>
                   <a href="https://cv.jji.kr/pm" target="_blank" rel="noopener noreferrer"
-                    className="block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                    className="menu block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                     CV
                   </a>
               </div>
               <a href="https://space.jji.kr" target="_blank" rel="noopener noreferrer"
-                  className="block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                  className="menu block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                   SPACE
                 </a>
               </div>
