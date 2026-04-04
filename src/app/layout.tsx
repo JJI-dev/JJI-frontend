@@ -6,6 +6,9 @@ import LoadingScreen from '@/components/LoadingScreen';
 export const metadata: Metadata = {
   title: 'Hub | JJI',
   description: 'Creative Studio - Design & Development',
+  alternates: {
+    canonical: 'https://space.jji.kr', 
+  },
 };
 
 export default function RootLayout({
