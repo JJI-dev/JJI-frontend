@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'https://space.jji.kr', // ✨ 실제 도메인 주소
+    siteUrl: 'https://jji.kr', // ✨ 실제 도메인 주소
     generateRobotsTxt: true,        // robots.txt 자동 생성
     sitemapSize: 7000,
     changefreq: 'daily',

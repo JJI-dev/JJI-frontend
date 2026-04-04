@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Hub | JJI',
   description: 'Creative Studio - Design & Development',
   alternates: {
-    canonical: 'https://space.jji.kr', 
+    canonical: 'https://jji.kr', 
   },
 };
 
