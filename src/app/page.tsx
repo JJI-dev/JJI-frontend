@@ -65,27 +65,9 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Column 2: MO + Services */}
-            <div
-              className="space-y-3"
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? 'translateY(0)' : 'translateY(24px)',
-                transition: 'opacity 0.65s cubic-bezier(0.22,1,0.36,1) 0.12s, transform 0.65s cubic-bezier(0.22,1,0.36,1) 0.12s',
-              }}
-            >
-              <a href="https://mo.jji.kr" target="_blank" rel="noopener noreferrer"
-                className="menu block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
-                MO
-              </a>
-              <ul className="space-y-1 text-base md:text-xl lg:text-xl text-gray-400">
-                <li>Web</li>
-                <li>Mobile</li>
-                <li>Admin</li>
-              </ul>
-            </div>
+            
 
-            {/* Column 3: NE + Services */}
+            {/* Column 2: NE + Services */}
             <div
               className="space-y-3"
               style={{
@@ -107,6 +89,25 @@ export default function Home() {
               </ul>
             </div>
 
+            {/* Column 3: MO + Services */}
+            <div
+              className="space-y-3"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(24px)',
+                transition: 'opacity 0.65s cubic-bezier(0.22,1,0.36,1) 0.12s, transform 0.65s cubic-bezier(0.22,1,0.36,1) 0.12s',
+              }}
+            >
+              <a href="https://mo.jji.kr" target="_blank" rel="noopener noreferrer"
+                className="menu block text-4xl md:text-5xl lg:text-6xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
+                MO
+              </a>
+              <ul className="space-y-1 text-base md:text-xl lg:text-xl text-gray-400">
+                <li>Commerce</li>
+                <li>Brand</li>
+                <li>Product</li>
+              </ul>
+            </div>
             {/* Column 4: PROJECT REQUEST / SPACE / CAREER */}
             <div
               className="flex flex-col gap-4"
@@ -121,7 +122,7 @@ export default function Home() {
                 PROJECT REQUEST
               </a>
               <div className='flex flex-col gap-2 '>
-              <div className="flex gap-8 sm:gap-12 lg:gap-32   pb-4 lg:pb-0">
+              <div className="flex gap-1 sm:gap-2 lg:gap-28 pb-4 lg:pb-0">
                 <a href="https://career.jji.kr" target="_blank" rel="noopener noreferrer"
                     className="menu block text-2xl md:text-2xl lg:text-2xl font-medium underline decoration-2 underline-offset-4 hover:opacity-60 transition-opacity leading-tight cursor-pointer">
                     CAREER
